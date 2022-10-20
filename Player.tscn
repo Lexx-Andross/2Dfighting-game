@@ -1,0 +1,38 @@
+[gd_scene format=2]
+
+[node name="Player" type="KinematicBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+
+[node name="Colliders" type="Node2D" parent="."]
+
+[node name="HandColliders" type="Node2D" parent="Colliders"]
+
+[node name="Left Hand" type="Area2D" parent="Colliders/HandColliders"]
+
+[node name="LeftHandColl" type="CollisionShape2D" parent="Colliders/HandColliders/Left Hand" groups=[
+"P1 Hand Feet Coll",
+]]
+modulate = Color( 0.909804, 0.917647, 0.00392157, 1 )
+
+[node name="Right hand" type="Area2D" parent="Colliders/HandColliders"]
+
+[node name="RightHandColl" type="CollisionShape2D" parent="Colliders/HandColliders/Right hand" groups=[
+"P1 Hand Feet Coll",
+]]
+
+[node name="FootColiders" type="Node2D" parent="Colliders"]
+
+[node name="Left foot" type="Area2D" parent="Colliders/FootColiders"]
+
+[node name="LeftFootColl" type="CollisionShape2D" parent="Colliders/FootColiders/Left foot" groups=[
+"P1 Hand Feet Coll",
+]]
+
+[node name="Right foot" type="Area2D" parent="Colliders/FootColiders"]
+
+[node name="RightFootColl" type="CollisionShape2D" parent="Colliders/FootColiders/Right foot" groups=[
+"P1 Hand Feet Coll",
+]]
