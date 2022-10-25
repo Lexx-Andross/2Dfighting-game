@@ -15,7 +15,7 @@ func _ready():
 
 
 func _process(delta):
-	if(imput.is_action_just_pressed9("ui_punch")):
+	if(Input.is_action_just_pressed9("ui_punch")):
 		if(currentAttsck == 0):
 			animatedSprite.play("Straight Punch")
 		elif(currentAttack == 1):
@@ -25,7 +25,26 @@ func _process(delta):
 
 		isInCombo = true
 		currentAttack +=1
-		
-	if(isInCombo):
-		time -= delta 
+		_Reset_Attack_Timer()
 
+	if(isInCombo):
+		time -= delta  
+		
+		if(time < 0):
+			time = timeTillNextInputs
+			isIncombo = false 
+			currentAttack = 0 
+			animatedSprite.play("Idle") 
+			
+
+func _Reset_Attack_Timer():
+	if(currentAttack < 4):
+		time = timeTIllNextInput 
+
+
+func _on_Right_hand_body_entered(body):
+	pass # Replace with function body.
+
+
+func _on_Left_foot_body_entered(body):
+	pass # Replace with function body.
