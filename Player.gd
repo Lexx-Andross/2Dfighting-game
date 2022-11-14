@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-onready var animationSprite = $AnimatedSprite
+onready var animatedSprite = $AnimatedSprite
 
 var isInCombo = false 
 
@@ -16,12 +16,12 @@ func _ready():
 
 func _process(delta):
 	if(Input.is_action_just_pressed9("ui_punch")):
-		if(currentAttsck == 0):
+		if(currentAttack == 0):
 			animatedSprite.play("Straight Punch")
 		elif(currentAttack == 1):
 			animatedSprite.play("upper cut")
 		elif(currentAttack ==2):
-			animatedsprite.play("low kick")
+			animatedSprite.play("low kick")
 
 		isInCombo = true
 		currentAttack +=1
@@ -31,15 +31,15 @@ func _process(delta):
 		time -= delta  
 		
 		if(time < 0):
-			time = timeTillNextInputs
-			isIncombo = false 
+			time = timeTillNextInput
+			isInCombo = false 
 			currentAttack = 0 
 			animatedSprite.play("Idle") 
 			
 
 func _Reset_Attack_Timer():
-	if(currentAttack < 4):
-		time = timeTIllNextInput 
+	if(currentAttack < 4):   
+		time = timeTillNextInput 
 
 
 func _on_Right_hand_body_entered(body):
